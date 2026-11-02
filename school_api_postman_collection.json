@@ -1,0 +1,527 @@
+{
+    "info": {
+        "_postman_id": "school-api-jpa-collection",
+        "name": "school-api: Spring Data JPA",
+        "description": "Postman collection generated from the Spring Data JPA report documentation.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Ssenari 10: User və Passport (JOIN FETCH)",
+            "item": [
+                {
+                    "name": "1. User yarat",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Əli\",\n  \"surname\": \"Məmmədov\",\n  \"email\": \"ali@mail.com\",\n  \"gender\": \"MALE\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/users",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "users"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "2. Pasport əlavə et",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"serialNumber\": \"AA1234567\",\n  \"issueDate\": \"2020-05-15\",\n  \"country\": \"Azerbaijan\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/users/1/passport",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "users",
+                                "1",
+                                "passport"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3. User məlumatını gətir (Passport ilə birlikdə)",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/users/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "users",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "4. Pasport məlumatını gətir",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/users/1/passport",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "users",
+                                "1",
+                                "passport"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Ssenari 12: Passportun Silinməsi (orphanRemoval)",
+            "item": [
+                {
+                    "name": "1. User-dən pasportu sil",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/users/1/passport",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "users",
+                                "1",
+                                "passport"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "2. Silinmiş pasportu yoxla",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/users/1/passport",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "users",
+                                "1",
+                                "passport"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3. Tam user-i sil (Cascade test)",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/users/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "users",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Ssenari 13: Departament və İşçi",
+            "item": [
+                {
+                    "name": "1. Departament yarat",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"IT\",\n  \"location\": \"Baku\",\n  \"phone\": \"+994501234567\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/departments",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "departments"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "2. İşçi yarat",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Vüqar\",\n  \"surname\": \"Həsənov\",\n  \"salary\": 1500.0,\n  \"departmentId\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/employees",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "employees"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3. İşçisi olan departamenti silməyə cəhd et",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/departments/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "departments",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "4. Öncə işçini sil",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/employees/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "employees",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Ssenari 14: Tələbə və Kurs (ManyToMany)",
+            "item": [
+                {
+                    "name": "1. Tələbə yarat",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Nigar\",\n  \"surname\": \"Quliyeva\",\n  \"age\": 20\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/students",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "students"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "2. Kurs yarat (Məs. Java)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Java\",\n  \"description\": \"Java Backend Course\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/courses",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "courses"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3. Tələbəni kursa qeydiyyat et",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/students/1/courses/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "students",
+                                "1",
+                                "courses",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "4. Tələbəni sil (Kurslar qalmalıdır)",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/students/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "students",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "5. Kursların durulmasını yoxla",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/courses",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "courses"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Ssenari 15-16: Kitab və Müəllif (N+1 yoxlaması)",
+            "item": [
+                {
+                    "name": "1. Kitab yarat",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Java Basics\",\n  \"price\": 19.99,\n  \"pageCount\": 350\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/books",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "books"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "2. Müəllif yarat",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Nizami Gəncəvi\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/authors",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "authors"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3. Müəllifi kitaba bağla",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/books/1/authors/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "books",
+                                "1",
+                                "authors",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "4. Kitabı gətir (N+1 yoxlaması)",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/test-demo/api/books/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "test-demo",
+                                "api",
+                                "books",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
